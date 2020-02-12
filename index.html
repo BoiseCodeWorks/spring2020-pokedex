@@ -1,20 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>PokePals</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Document</title>
-</head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <h3>Pokemon</h3>
+          <ul id="names"></ul>
+        </div>
+        <div class="col" id="details">
+          <div class="card">
+            <img
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">NAME</h5>
+              <p class="card-text">
+                WEIGHT: _____ HEIGHT: ______
+              </p>
+              <p class="card-text">
+                TYPE: _________, ____________
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<body>
-
-
-
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+      integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ="
+      crossorigin="anonymous"
+    ></script>
     <script src="app/main.js" type="module"></script>
-</body>
-
+  </body>
 </html>
