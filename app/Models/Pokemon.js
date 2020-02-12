@@ -18,6 +18,13 @@ export default class Pokemon {
     }
   }
 
+  getButton() {
+    if (this._id) {
+      return `<button class="btn btn-danger" onclick="app.pokeController.release()">Release</button>`;
+    }
+    return `<button class="btn btn-warning" onclick="app.pokeController.catch()">CATCH</button>`;
+  }
+
   get Template() {
     return `
       <div class="card">
@@ -34,6 +41,7 @@ export default class Pokemon {
         <p class="card-text">
           TYPE: ${this.types.join(", ")}
         </p>
+        ${this.getButton()}
       </div>
     </div>
       `;

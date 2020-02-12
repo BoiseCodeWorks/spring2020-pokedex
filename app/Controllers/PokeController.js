@@ -13,12 +13,21 @@ function _draw() {
 }
 
 function _drawActivePokemon() {
-  document.getElementById("details").innerHTML =
-    store.State.activePokemon.Template;
+  if (store.State.activePokemon) {
+    document.getElementById("details").innerHTML =
+      store.State.activePokemon.Template;
+  } else {
+    document.getElementById("details").innerHTML = "";
+  }
 }
 
 function _drawMyPokemon() {
-  console.log(store.State.myPokemon);
+  let myPokemon = store.State.myPokemon;
+  let template = "";
+  myPokemon.forEach(p => {
+    template += `<li onclick="app.pokeController.setMyPokemon('${p._id}')">${p.name}</li>`;
+  });
+  document.getElementById("my-pokemon").innerHTML = template;
 }
 
 //Public
@@ -35,5 +44,23 @@ export default class PokeController {
   getPokemonById(url) {
     debugger;
     PokeService.getPokemonById(url);
+  }
+  catch() {
+    let found = store.State.myPokemon.find(
+      p => p.name == store.State.activePokemon.name
+    );
+    if (found) {
+      alert("You already have that pokemon");
+      return;
+    }
+    PokeService.catch();
+  }
+
+  setMyPokemon(id) {
+    PokeService.setMyPokemon(id);
+  }
+
+  release() {
+    PokeService.release();
   }
 }
